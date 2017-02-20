@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nerarchy site redesign
 // @namespace    http://idrinth.de/
-// @version      1.1.0
+// @version      1.1.1
 // @description  Tries to make the site a bit easier to handle by reducing the overload of the right side bar.
 // @author       Björn "Idrinth" Büttner
 // @match        https://nerdarchy.com/*
@@ -72,7 +72,7 @@
     },
     {
         elements: ['.site-container'],
-        rules: ['padding:12px']
+        rules: ['padding:12px','box-shadow: 5px 5px 15px #aaa']
     },
     {
         elements: ['.nav-primary'],

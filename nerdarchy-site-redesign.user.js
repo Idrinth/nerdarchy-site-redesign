@@ -61,11 +61,11 @@
     },
     {
         elements: ['#categories-3'],
-        rules: ['margin-bottom:0','direction: rtl','padding-right:2px','transition: margin-left 2s','overflow:hidden','position: fixed','left: 0','top: 0','background: #fff','height: 100%','margin-left: -275px','width: 300px','box-sizing: border-box','transition-delay:2.5s']
+        rules: ['margin-bottom:0','direction: rtl','padding-right:2px','transition: margin-left 2s','overflow-y: scroll','overflow-x:hidden','position: fixed','left: 0','top: 0','background: #fff','height: 100%','margin-left: -275px','width: 300px','box-sizing: border-box','transition-delay:2.5s']
     },
     {
         elements: ['#categories-3:hover'],
-        rules: ['margin-left:0','overflow-y: scroll','transition-delay:0s']
+        rules: ['margin-left:0','transition-delay:0s']
     },
     {
         elements: ['#categories-3 > *'],

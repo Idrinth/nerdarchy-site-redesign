@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nerarchy site redesign
 // @namespace    http://idrinth.de/
-// @version      1.1.1
+// @version      1.1.2
 // @description  Tries to make the site a bit easier to handle by reducing the overload of the right side bar.
 // @author       Björn "Idrinth" Büttner
 // @match        https://nerdarchy.com/*
@@ -84,7 +84,7 @@
     },
     {
         elements: ['#categories-3'],
-        rules: ['margin-bottom:0','direction: rtl','padding-right:2px','transition: margin-left 2s','overflow-y: scroll','overflow-x:hidden','position: fixed','left: 0','top: 0','background: #fff','height: 100%','margin-left: -275px','width: 300px','box-sizing: border-box','transition-delay:2.5s']
+        rules: ['box-shadow: 3px 0 6px #000;','margin-bottom:0','direction: rtl','padding-right:2px','transition: margin-left 2s','overflow-y: scroll','overflow-x:hidden','position: fixed','left: 0','top: 0','background: #fff','height: 100%','margin-left: -275px','width: 300px','box-sizing: border-box','transition-delay:2.5s']
     },
     {
         elements: ['#categories-3:hover'],
@@ -153,6 +153,10 @@
     {
         elements: ['#WFItem10830201 #WFIcenter .wf-image__0','#WFItem10830201 #WFIcenter .wf-image__1'],
         rules: ['display:none !important']
+    },
+    {
+        elements: ['.widget-area.header-widget-area .widget'],
+        rules: ['margin-bottom: 0']
     },
     {
         elements: ['#WFItem10830201 .wf-contbox ul li'],

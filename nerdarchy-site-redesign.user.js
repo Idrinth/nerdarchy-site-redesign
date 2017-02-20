@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nerarchy site redesign
 // @namespace    http://idrinth.de/
-// @version      1.0.1
+// @version      1.1.0
 // @description  Tries to make the site a bit easier to handle by reducing the overload of the right side bar.
 // @author       Björn "Idrinth" Büttner
 // @match        https://nerdarchy.com/*
@@ -21,11 +21,34 @@
     document.getElementsByTagName('body')[0].appendChild(document.getElementById('categories-3'));
     document.getElementsByClassName('title-area')[0].parentNode.insertBefore(document.getElementById('social_stickers_widget-3'),document.getElementsByClassName('title-area')[0].parentNode.firstChild);
     document.getElementsByClassName('title-area')[0].parentNode.appendChild(document.getElementById('search-4'));
+    var l = document.querySelectorAll("#WFItem10830201 *");
+    for(var c=0;c<l.length;c++) {
+        if(l[c].hasAttribute('style')) {
+            l[c].removeAttribute('style','');
+        }
+    }
+    var header=document.createElement('h3');
+    var mailerList = document.getElementById('WFIcenter').children[0].children[1].children[0].children[0];
+    header.appendChild(document.createTextNode(mailerList.children[0].innerText));
+    document.getElementById('WFIheader').appendChild(header);
+    mailerList.removeChild(mailerList.children[0]);
+    var l2 = mailerList.children;
+    var ul = document.createElement('ul');
+    for(var c1=0;c1<l2.length;c1++) {
+       ul.appendChild(document.createElement('li'));
+       ul.lastChild.appendChild(document.createTextNode((l2[c1].textContent).replace(/^\s*\*\s*/,'')));
+    }
+    mailerList.parentNode.insertBefore(ul,mailerList);
+    mailerList.parentNode.removeChild(mailerList);
 })(
 [
     {
         elements: ['body'],
         rules: ['font-size:13px','line-height: 1.5;']
+    },
+    {
+        elements: ['#WFItem10830201 #WFIheader *'],
+        rules: ['display:none !important']
     },
     {
         elements: ['h1','.entry-title'],
@@ -36,8 +59,8 @@
         rules: ['font-size:1.75em']
     },
     {
-        elements: ['h3'],
-        rules: ['font-size:1.55em']
+        elements: ['h3','#WFItem10830201 #WFIheader h3'],
+        rules: ['font-size:1.55em !important','display:block !important']
     },
     {
         elements: ['h4'],
@@ -94,6 +117,46 @@
     {
         elements: ['#search-4 form'],
         rules: ['width:100%','margin:0']
+    },
+    {
+        elements: ['#WFItem10830201 #WFIfooter'],
+        rules: ['display:none !important']
+    },
+    {
+        elements: ['#WFItem10830201 *','#WFItem10830201'],
+        rules: ['max-width:100% !important']
+    },
+    {
+        elements: ['#WFItem10830201 #WFIcenter .wf-labelpos'],
+        rules: ['width:33% !important','float:left !important',]
+    },
+    {
+        elements: ['#WFItem10830201 #WFIcenter .wf-inputpos'],
+        rules: ['width:66% !important','float:right !important',]
+    },
+    {
+        elements: ['#WFItem10830201 .wf-body li.wf-submit'],
+        rules: ['width:66% !important','float:right !important','box-sizing:border-box !important','margin:0 !important','clear:none !important']
+    },
+    {
+        elements: ['#WFItem10830201 .wf-body li.wf-counter'],
+        rules: ['width:33% !important','float:left !important','box-sizing:border-box !important','margin:0 !important','clear:none !important']
+    },
+    {
+        elements: ['#WFItem10830201 #WFIcenter.wf-body li'],
+        rules: ['padding: 5px !important']
+    },
+    {
+        elements: ['#WFItem10830201 .wf-body li.wf-text__0 p'],
+        rules: ['color: #222 !important']
+    },
+    {
+        elements: ['#WFItem10830201 #WFIcenter .wf-image__0','#WFItem10830201 #WFIcenter .wf-image__1'],
+        rules: ['display:none !important']
+    },
+    {
+        elements: ['#WFItem10830201 .wf-contbox ul li'],
+        rules: ['list-style: circle !important','margin-left: 1em !important']
     }
 ]
 );
